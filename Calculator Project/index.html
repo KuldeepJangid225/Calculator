@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Web Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="calculator">
+            <!-- Calculator Header -->
+            <header class="calculator__header">
+                <h1>Calculator</h1>
+                <button id="theme-toggle" class="btn btn--sm theme-toggle" aria-label="Toggle theme">
+                    <span class="theme-icon">🌙</span>
+                </button>
+            </header>
+
+            <!-- Display Area -->
+            <div class="calculator__display">
+                <div class="display__history" id="history" aria-label="Calculation history"></div>
+                <div class="display__current" id="display" aria-label="Current calculation">0</div>
+                <div class="display__memory" id="memory-indicator" aria-label="Memory indicator"></div>
+            </div>
+
+            <!-- Calculator Buttons Grid -->
+            <div class="calculator__buttons" role="grid" aria-label="Calculator buttons">
+                <!-- Row 1: Memory and Clear Functions -->
+                <button class="btn calculator__btn btn--memory" data-action="memory-clear" aria-label="Memory clear">MC</button>
+                <button class="btn calculator__btn btn--memory" data-action="memory-recall" aria-label="Memory recall">MR</button>
+                <button class="btn calculator__btn btn--memory" data-action="memory-add" aria-label="Memory add">M+</button>
+                <button class="btn calculator__btn btn--memory" data-action="memory-subtract" aria-label="Memory subtract">M-</button>
+
+                <!-- Row 2: Clear and Operations -->
+                <button class="btn calculator__btn btn--clear" data-action="clear-all" aria-label="Clear all">AC</button>
+                <button class="btn calculator__btn btn--clear" data-action="clear-entry" aria-label="Clear entry">CE</button>
+                <button class="btn calculator__btn btn--operator" data-action="backspace" aria-label="Backspace">⌫</button>
+                <button class="btn calculator__btn btn--operator" data-operator="/" aria-label="Divide">÷</button>
+
+                <!-- Row 3: Numbers and Operations -->
+                <button class="btn calculator__btn btn--number" data-number="7" aria-label="Seven">7</button>
+                <button class="btn calculator__btn btn--number" data-number="8" aria-label="Eight">8</button>
+                <button class="btn calculator__btn btn--number" data-number="9" aria-label="Nine">9</button>
+                <button class="btn calculator__btn btn--operator" data-operator="*" aria-label="Multiply">×</button>
+
+                <!-- Row 4: Numbers and Operations -->
+                <button class="btn calculator__btn btn--number" data-number="4" aria-label="Four">4</button>
+                <button class="btn calculator__btn btn--number" data-number="5" aria-label="Five">5</button>
+                <button class="btn calculator__btn btn--number" data-number="6" aria-label="Six">6</button>
+                <button class="btn calculator__btn btn--operator" data-operator="-" aria-label="Subtract">-</button>
+
+                <!-- Row 5: Numbers and Operations -->
+                <button class="btn calculator__btn btn--number" data-number="1" aria-label="One">1</button>
+                <button class="btn calculator__btn btn--number" data-number="2" aria-label="Two">2</button>
+                <button class="btn calculator__btn btn--number" data-number="3" aria-label="Three">3</button>
+                <button class="btn calculator__btn btn--operator" data-operator="+" aria-label="Add">+</button>
+
+                <!-- Row 6: Zero, Decimal, Percentage, and Equals -->
+                <button class="btn calculator__btn btn--number btn--zero" data-number="0" aria-label="Zero">0</button>
+                <button class="btn calculator__btn btn--number" data-action="decimal" aria-label="Decimal point">.</button>
+                <button class="btn calculator__btn btn--operator" data-action="percentage" aria-label="Percentage">%</button>
+                <button class="btn calculator__btn btn--equals" data-action="equals" aria-label="Equals">=</button>
+            </div>
+
+            <!-- Jakarta EE Integration Notes -->
+            <!-- 
+                Jakarta EE Integration Points:
+                - Add REST endpoints for calculation logging: /api/calculations
+                - Implement server-side calculation validation
+                - Store calculation history in database using JPA
+                - Add user session management with Jakarta Security
+                - Implement calculation audit trail with Jakarta Persistence
+            -->
+
+            <!-- Error Messages -->
+            <div class="calculator__error" id="error-message" role="alert" aria-live="polite"></div>
+
+            <!-- Calculation History Panel -->
+            <div class="calculator__history-panel" id="history-panel">
+                <h3>History</h3>
+                <div class="history__list" id="history-list" aria-label="Calculation history list">
+                    <!-- History items will be populated by JavaScript -->
+                </div>
+                <button class="btn btn--sm btn--outline" id="clear-history" aria-label="Clear history">Clear History</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
